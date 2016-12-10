@@ -1,0 +1,165 @@
+{
+  "logging": {
+    "includes": [],
+    "appenders": [{
+        "name": "stderr",
+        "type": "console",
+        "args": {
+          "stream": "std_error",
+          "level_colors": [{
+              "level": "debug",
+              "color": "green"
+            },{
+              "level": "warn",
+              "color": "brown"
+            },{
+              "level": "error",
+              "color": "red"
+            }
+          ]
+        },
+        "enabled": true
+      },{
+        "name": "default",
+        "type": "file",
+        "args": {
+          "format": "${timestamp} ${thread_name} ${context} ${file}:${line} ${method} ${level}]  ${message}",
+          "filename": "logs/default/default.log",
+          "flush": true,
+          "rotate": true,
+          "rotation_interval": 3600000000,
+          "rotation_limit": "86400000000"
+        },
+        "enabled": true
+      },{
+        "name": "rpc",
+        "type": "file",
+        "args": {
+          "format": "${timestamp} ${thread_name} ${context} ${file}:${line} ${method} ${level}]  ${message}",
+          "filename": "logs/rpc/rpc.log",
+          "flush": true,
+          "rotate": true,
+          "rotation_interval": 3600000000,
+          "rotation_limit": "86400000000"
+        },
+        "enabled": true
+      },{
+        "name": "blockchain",
+        "type": "file",
+        "args": {
+          "format": "${timestamp} ${thread_name} ${context} ${file}:${line} ${method} ${level}]  ${message}",
+          "filename": "logs/blockchain/blockchain.log",
+          "flush": true,
+          "rotate": true,
+          "rotation_interval": 3600000000,
+          "rotation_limit": "86400000000"
+        },
+        "enabled": true
+      },{
+        "name": "p2p",
+        "type": "file",
+        "args": {
+          "format": "${timestamp} ${thread_name} ${context} ${file}:${line} ${method} ${level}]  ${message}",
+          "filename": "logs/p2p/p2p.log",
+          "flush": false,
+          "rotate": true,
+          "rotation_interval": 3600000000,
+          "rotation_limit": "86400000000"
+        },
+        "enabled": true
+      }
+    ],
+    "loggers": [{
+        "name": "default",
+        "level": "warn",
+        "enabled": true,
+        "additivity": false,
+        "appenders": [
+          "default",
+          "p2p"
+        ]
+      },{
+        "name": "client",
+        "level": "warn",
+        "enabled": true,
+        "additivity": false,
+        "appenders": [
+          "default",
+          "p2p"
+        ]
+      },{
+        "name": "rpc",
+        "level": "warn",
+        "enabled": true,
+        "additivity": false,
+        "appenders": [
+          "rpc"
+        ]
+      },{
+        "name": "p2p",
+        "level": "warn",
+        "enabled": true,
+        "additivity": false,
+        "appenders": [
+          "p2p"
+        ]
+      },{
+        "name": "user",
+        "level": "debug",
+        "enabled": true,
+        "additivity": false,
+        "appenders": [
+          "user"
+        ]
+      },{
+        "name": "blockchain",
+        "level": "warn",
+        "enabled": true,
+        "additivity": false,
+        "appenders": [
+          "blockchain"
+        ]
+      }
+    ]
+  },
+  "ignore_console": false,
+  "client_debug_name": "",
+  "rpc": {
+    "enable": false,
+    "enable_cache": true,
+    "rpc_user": "",
+    "rpc_password": "",
+    "rpc_endpoint": "127.0.0.1:0",
+    "httpd_endpoint": "127.0.0.1:0",
+    "encrypted_rpc_endpoint": "127.0.0.1:0",
+    "encrypted_rpc_wif_key": "",
+    "htdocs": "./htdocs"
+  },
+  "statistics_enabled": false,
+  "default_peers": [
+    "119.254.161.27:60696",
+    "119.254.161.28:60696",
+    "59.108.127.190:60696",
+    "59.108.127.182:60696",
+    "118.26.132.170:60696",
+    "172.16.2.150:60696",
+    "172.16.2.151:60696",
+    "172.16.2.152:60696",
+    "10.1.1.27:60696",
+    "10.1.1.28:60696"
+  ],
+  "maximum_number_of_connections": 200,
+  "use_upnp": true,
+  "chain_servers": [],
+  "chain_server": {
+    "enabled": false,
+    "listen_port": 0
+  },
+  "wallet_enabled": true,
+  "min_relay_fee": 1000,
+  "wallet_callback_url": "",
+  "light_network_fee": 1000,
+  "light_relay_fee": 1000,
+  "relay_account_name": "",
+  "faucet_account_name": ""
+}
